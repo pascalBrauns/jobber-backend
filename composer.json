@@ -1,0 +1,15 @@
+{
+    "name": "jobber/backend",
+    "authors": [
+        {
+            "name": "pascalBrauns",
+            "email": "pascal.brauns@juwelo.de"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.0",
+        "ext-json": "^7.4",
+        "ext-curl": "^7.3",
+        "swoole/ide-helper": "^4.5"
+    }
+}
