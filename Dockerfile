@@ -1,9 +1,7 @@
-FROM phpswoole/swoole
-
-RUN docker-php-ext-install pdo pdo_mysql
-
+FROM php
+RUN pecl install swoole
+RUN echo "extension=swoole.so" >> /usr/local/etc/php/conf.d/swoole-ext.ini
 WORKDIR /app
-
 COPY . .
-
-RUN composer install
+RUN curl -s https://getcomposer.org/installer | php
+RUN php /app/composer.phar install

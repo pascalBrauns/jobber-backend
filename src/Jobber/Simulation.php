@@ -1,5 +1,4 @@
 <?php
-
 namespace Jobber;
 use Jobber\Reactor\Grid\Task;
 use Jobber\Reactor\Inbox\Message;

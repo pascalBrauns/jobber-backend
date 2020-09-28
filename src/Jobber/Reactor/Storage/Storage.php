@@ -1,8 +1,6 @@
 <?php
 
 namespace Jobber\Reactor;
-require __DIR__ . '/Job.php';
-require __DIR__ . '/Table/Blueprint.php';
 use Swoole;
 
 class Storage {

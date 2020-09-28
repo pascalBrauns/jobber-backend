@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   jobber:
-    image: phpswoole/swoole
+    image: php
     ports:
       - 9502:${PORT}
     container_name: jobber
@@ -17,4 +17,4 @@ services:
       context: .
       dockerfile: Dockerfile
     working_dir: /app
-    command: php /app/src/Main.php
+    command: php /app/index.php

@@ -1,8 +1,6 @@
 <?php
 
 namespace Jobber\Reactor\Listener\Stopper;
-require __DIR__ . '/Complex.php';
-require __DIR__ . '/Task.php';
 use Jobber\Reactor;
 use Jobber\Reactor\Listener\Runtime\Status;
 use Jobber\Reactor\Storage;

@@ -1,9 +1,8 @@
 <?php
 
 namespace Jobber\Reactor;
-require __DIR__ . '/Message.php';
 use Swoole;
-use Event;
+use Jobber\Event;
 use Jobber\Reactor\Type;
 
 class Inbox extends Event\Emitter {

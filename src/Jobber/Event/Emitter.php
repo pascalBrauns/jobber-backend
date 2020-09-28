@@ -1,6 +1,6 @@
 <?php
 
-namespace Event;
+namespace Jobber\Event;
 
 class Emitter {
   private array $handlers = [];

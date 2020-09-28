@@ -1,7 +1,6 @@
 <?php
 
 namespace Jobber\Reactor\Listener\Stopper;
-
 use Jobber\Reactor\Storage;
 use Jobber\Reactor\Type\Job;
 use Jobber\Reactor\Listener\Runtime;

@@ -1,7 +1,6 @@
 <?php
 
 namespace Jobber\Reactor\Storage\Table;
-
 use DateTime;
 use Jobber\Reactor\Type;
 use Swoole;

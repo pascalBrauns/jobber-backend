@@ -1,7 +1,6 @@
 <?php
 
 namespace Jobber\Reactor\Listener\Runtime;
-require __DIR__ . '/Complex.php';
 use Jobber\Reactor;
 use Jobber\Reactor\Storage;
 use Jobber\Reactor\Type\Job;

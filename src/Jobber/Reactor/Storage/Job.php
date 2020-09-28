@@ -1,13 +1,5 @@
 <?php
-
 namespace Jobber\Reactor\Storage;
-require __DIR__ . '/Table/Id.php';
-require __DIR__ . '/Table/Type.php';
-require __DIR__ . '/Table/Log.php';
-require __DIR__ . '/Table/Pid.php';
-require __DIR__ . '/Table/Progress.php';
-require __DIR__ . '/Table/Status.php';
-require __DIR__ . '/Table/Lifetime.php';
 use Jobber\Reactor;
 use Jobber\Reactor\Storage\Table;
 use Jobber\Reactor\Type;

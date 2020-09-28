@@ -1,5 +1,7 @@
 <?php
 
+namespace Jobber;
+
 class Console {
   static function log(...$messages) {
     echo array_reduce(

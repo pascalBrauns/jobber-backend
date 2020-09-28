@@ -1,14 +1,8 @@
 <?php
 
 namespace Jobber\Reactor\Type;
-
 use Jobber\Reactor\Type\Job\Lifetime;
 use Jobber\Reactor\Type\Job\Progress;
-
-require __DIR__ . '/Progress.php';
-require __DIR__ . '/Lifetime.php';
-require __DIR__ . '/Status.php';
-require __DIR__ . '/Type.php';
 
 class Job {
   public string $id;

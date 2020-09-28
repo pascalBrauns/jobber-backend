@@ -1,9 +1,6 @@
 <?php
-
 namespace Jobber;
-use Event;
-use Jobber\Reactor\Storage;
-use Jobber\Reactor\Type\Job;
+use Jobber\Event;
 
 class Spreader {
   static function launcher(Event\Emitter $emitter, string $host, int $port) {

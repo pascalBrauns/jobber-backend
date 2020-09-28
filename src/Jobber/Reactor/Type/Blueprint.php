@@ -2,8 +2,6 @@
 
 namespace Jobber\Reactor\Type;
 
-use Jobber\Reactor;
-
 class Blueprint {
   public string $id;
   public string $type;

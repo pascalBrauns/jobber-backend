@@ -1,9 +1,6 @@
 <?php
 
 namespace Jobber\Reactor\Listener;
-require __DIR__ . '/Status.php';
-require __DIR__ . '/Complex.php';
-require __DIR__ . '/Lifetime.php';
 use Jobber\Reactor;
 use Jobber\Reactor\Grid;
 use Jobber\Reactor\Inbox\Message;

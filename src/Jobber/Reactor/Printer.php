@@ -1,7 +1,7 @@
 <?php
 
 namespace Jobber\Reactor;
-use Console;
+use Jobber\Console;
 
 class Printer {
   static function status(Type\Job $job) {

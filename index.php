@@ -1,12 +1,10 @@
 <?php
-require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . '/Console.php';
-require __DIR__ . '/Event/Emitter.php';
-require __DIR__ . '/Reflex/Reflex.php';
-require __DIR__ . '/Jobber/Jobber.php';
+require __DIR__ . '/src/Autoloader.php';
 use Jobber\Environment;
 use Jobber\Reactor\Grid\Task;
 use Jobber\Spreader;
+
+Environment::load(__DIR__.'/.env');
 
 $host = '0.0.0.0';
 $port = Environment::$port;

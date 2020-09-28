@@ -1,12 +1,6 @@
 <?php
-require __DIR__ . '/Environment.php';
-require __DIR__ . '/Reactor/Reactor.php';
-require __DIR__ . '/Router/Router.php';
-require __DIR__ . '/Simulation.php';
-require __DIR__ . '/Client.php';
-require __DIR__ . '/Spreader/Spreader.php';
-
 use Jobber\Reactor;
+use Jobber\Event;
 
 class Jobber {
 

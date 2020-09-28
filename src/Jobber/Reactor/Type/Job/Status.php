@@ -1,8 +1,6 @@
 <?php
 
 namespace Jobber\Reactor\Type\Job;
-require __DIR__ . '/../Enum.php';
-
 use Jobber\Reactor\Type\Enum;
 
 class Status extends Enum {

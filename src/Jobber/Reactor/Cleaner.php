@@ -1,14 +1,13 @@
 <?php
 
 namespace Jobber\Reactor;
+use Swoole;
 use Jobber\Reactor;
 use Jobber\Environment;
 use Jobber\Reactor\Inbox\Message;
-use Swoole;
 use Jobber\Reactor\Type\Job;
 
 class Cleaner {
-
   static function run() {
     $process = new Swoole\Process(function() {
       while (true) {
@@ -36,5 +35,4 @@ class Cleaner {
     });
     $process->start();
   }
-
 }

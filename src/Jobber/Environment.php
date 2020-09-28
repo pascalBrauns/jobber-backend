@@ -1,5 +1,4 @@
 <?php
-
 namespace Jobber;
 
 class Environment {
@@ -10,21 +9,20 @@ class Environment {
   static public int $port;
   static public int $persistence;
 
-  static function setup() {
-    Environment::$addresses = explode(';', $_ENV['ADDRESSES']);
-    if (isset($_ENV['PORT'])) {
-      Environment::$port = (int) $_ENV['PORT'];
+  static function load(string $path) {
+    $env = parse_ini_file($path);
+    Environment::$addresses = explode(';', $env['ADDRESSES']);
+    if (isset($env['PORT'])) {
+      Environment::$port = (int) $env['PORT'];
     }
     else {
       Environment::$port = 80;
     }
-    if (isset($_ENV['PERSISTENCE'])) {
-      Environment::$persistence = (int) $_ENV['PERSISTENCE'];
+    if (isset($env['PERSISTENCE'])) {
+      Environment::$persistence = (int) $env['PERSISTENCE'];
     }
     else {
       Environment::$persistence = 10 * 60;
     }
   }
 }
-
-Environment::setup();

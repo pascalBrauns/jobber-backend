@@ -1,9 +1,6 @@
 <?php
 
 namespace Jobber\Reactor\Listener;
-require __DIR__ . '/Status.php';
-require __DIR__ . '/Internal/Internal.php';
-require __DIR__ . '/External/External.php';
 use Jobber\Reactor;
 use Jobber\Reactor\Inbox\Message;
 use Jobber\Reactor\Storage;

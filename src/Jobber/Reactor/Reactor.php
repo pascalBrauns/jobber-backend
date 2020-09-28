@@ -1,21 +1,9 @@
 <?php
-
 namespace Jobber;
-require __DIR__ . '/Inbox/Inbox.php';
-require __DIR__ . '/Storage/Storage.php';
-require __DIR__ . '/Listener/Listener.php';
-require __DIR__ . '/Grid.php';
-require __DIR__ . '/Printer.php';
-require __DIR__ . '/Type/Query.php';
-require __DIR__ . '/Type/Blueprint.php';
-require __DIR__ . '/Type/Message.php';
-require __DIR__ . '/Type/Job/Job.php';
-require __DIR__ . '/Type/DTO.php';
-require __DIR__ . '/Cleaner/Cleaner.php';
-use Event;
+use Swoole;
+use Jobber\Event;
 use Jobber\Reactor\Cleaner;
 use Jobber\Reactor\Listener;
-use Swoole;
 use Jobber\Reactor\Storage;
 use Jobber\Reactor\Grid;
 

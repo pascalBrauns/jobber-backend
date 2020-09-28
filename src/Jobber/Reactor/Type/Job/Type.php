@@ -1,7 +1,6 @@
 <?php
 
 namespace Jobber\Reactor\Type\Job;
-
 use Jobber\Reactor\Type\Enum;
 
 class Type extends Enum {

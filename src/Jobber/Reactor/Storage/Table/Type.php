@@ -1,7 +1,6 @@
 <?php
 
 namespace Jobber\Reactor\Storage\Table;
-
 use Jobber\Reactor;
 use Swoole;
 

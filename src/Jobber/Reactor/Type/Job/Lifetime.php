@@ -1,7 +1,6 @@
 <?php
 
 namespace Jobber\Reactor\Type\Job;
-
 use DateTime;
 
 class Lifetime {

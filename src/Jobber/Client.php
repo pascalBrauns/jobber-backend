@@ -1,5 +1,4 @@
 <?php
-
 namespace Jobber;
 use GuzzleHttp;
 use Jobber\Reactor\Storage;

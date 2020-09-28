@@ -1,7 +1,6 @@
 <?php
 
 namespace Jobber\Reactor\Listener\Runtime\Internal;
-
 use Jobber\Reactor;
 use Jobber\Reactor\Inbox;
 use Jobber\Reactor\Storage;
