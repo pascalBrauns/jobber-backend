@@ -11,9 +11,11 @@ class Task {
    * @var Job|null
    */
   public ?Job $job;
+  public string $payload;
 
   public function __construct($id) {
     $this->job = Storage::$job->get($id);
+    $this->payload = Storage::$job->blueprint($id)->payload;
   }
 
   public function log(string $text) {

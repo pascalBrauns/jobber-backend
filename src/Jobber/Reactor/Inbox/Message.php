@@ -40,10 +40,10 @@ class Message {
     return $message;
   }
 
-  static function cancel(string $id, bool $setStatus = true) {
+  static function cancel(string $id) {
     $message = new Type\Message;
     $message->subject = 'cancel';
-    $message->payload = ['id' => $id, 'setStatus' => $setStatus];
+    $message->payload = ['id' => $id];
     return $message;
   }
 

@@ -3,6 +3,7 @@
 namespace Jobber\Reactor\Listener;
 use Jobber\Reactor;
 use Jobber\Reactor\Inbox\Message;
+use Jobber\Reactor\Type\Job;
 
 class Stopper {
 
@@ -20,29 +21,33 @@ class Stopper {
   static function cancel() {
     Reactor::$inbox->on('cancel', function(array $payload) {
       $id = $payload['id'];
-      $setStatus = $payload['setStatus'] ? true : false;
-      Stopper\Internal::cancel($id);
-      if ($setStatus) {
+      $current = Reactor\Storage::$job->get($id);
+      if ($current->status !== Job\Status::CANCELED) {
+        Stopper\Internal::cancel($id);
         Stopper\Status::cancel($id);
+        Stopper\Lifetime::end($id);
+        Stopper\Internal::pid($id);
+        Stopper\Propagation::cancel($id);
+        $message = Message::end($id);
+        Reactor::$inbox->send($message);
       }
-      Stopper\Lifetime::end($id);
-      Stopper\Internal::pid($id);
-      Stopper\Propagation::cancel($id, $setStatus);
-      $message = Message::end($id);
-      Reactor::$inbox->send($message);
     });
   }
 
   static function error() {
     Reactor::$inbox->on('error', function(array $payload) {
       $id = $payload['id'];
-      Reactor\Printer::error($id);
-      Stopper\Status::error($id);
-      Stopper\Lifetime::end($id);
-      Stopper\Propagation::error($id);
-      Stopper\Internal::pid($id);
-      $message = Message::end($id);
-      Reactor::$inbox->send($message);
+      $current = Reactor\Storage::$job->get($id);
+      if ($current->status !== Job\Status::FAILED) {
+        Reactor\Printer::error($id);
+        Stopper\Status::error($id);
+        Stopper\Lifetime::end($id);
+        Stopper\Internal::pid($id);
+        Stopper\Internal::error($id);
+        Stopper\Propagation::error($id);
+        $message = Message::end($id);
+        Reactor::$inbox->send($message);
+      }
     });
   }
 
@@ -50,5 +55,9 @@ class Stopper {
     Stopper::error();
     Stopper::cancel();
     Stopper::complete();
+
+    Reactor::$inbox->on('end', function(array $payload) {
+      print_r("ENDED: ". $payload['id'] . "\n");
+    });
   }
 }

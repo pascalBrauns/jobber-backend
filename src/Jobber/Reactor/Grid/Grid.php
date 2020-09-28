@@ -45,7 +45,7 @@ class Grid {
           }
           catch(Throwable $error) {
             Reactor::$inbox->send(Message::error($job->id, $error));
-            $task->log($error->getMessage());
+            $task->log($error->getMessage() . "\n" . $error->getTraceAsString());
           }
 
         });
