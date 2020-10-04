@@ -13,9 +13,9 @@ class Client {
     ]);
   }
 
-  static function create(string $host, string $port, string $id) {
+  static function create(string $host, string $port, string $prefix, string $id) {
     try {
-      $response = Client::instance()->put("$host:$port/job/$id", [
+      $response = Client::instance()->put("$host:$port$prefix/job/$id", [
           'body' => Storage::$job->get($id)->toJSON()
       ]);
       print_r($response->getBody()->getContents());
@@ -25,9 +25,9 @@ class Client {
     }
   }
 
-  static function lifetime(string $host, int $port, string $id) {
+  static function lifetime(string $host, int $port, string $prefix, string $id) {
     try {
-      $response = Client::instance()->post("$host:$port/job/$id/lifetime", [
+      $response = Client::instance()->post("$host:$port$prefix/job/$id/lifetime", [
           'body' => Storage::$job->get($id)->lifetime->toJSON()
       ]);
       print_r($response->getBody()->getContents());
@@ -37,9 +37,9 @@ class Client {
     }
   }
 
-  static function progress(string $host, int $port, string $id) {
+  static function progress(string $host, int $port, string $prefix, string $id) {
     try {
-      $response = Client::instance()->post("$host:$port/job/$id/progress", [
+      $response = Client::instance()->post("$host:$port$prefix/job/$id/progress", [
           'body' => Storage::$job->get($id)->progress->toJSON()
       ]);
       print_r($response->getBody()->getContents());
@@ -49,9 +49,9 @@ class Client {
     }
   }
 
-  static function status(string $host, int $port, string $id) {
+  static function status(string $host, int $port, string $prefix, string $id) {
     try {
-      $response = Client::instance()->post("$host:$port/job/$id/status", [
+      $response = Client::instance()->post("$host:$port$prefix/job/$id/status", [
           'body' => json_encode([
               'status' => Storage::$job->get($id)->status
           ])
@@ -63,10 +63,10 @@ class Client {
     }
   }
 
-  static function log(string $host, int $port, string $id) {
+  static function log(string $host, int $port, string $prefix, string $id) {
     try {
       $logs = Storage::$job->get($id)->logs;
-      $response = Client::instance()->post("$host:$port/job/$id/log", [
+      $response = Client::instance()->post("$host:$port$prefix/job/$id/log", [
           'body' => json_encode([
               'message' => $logs[count($logs) -1]
           ])
@@ -78,9 +78,9 @@ class Client {
     }
   }
 
-  static function removed(string $host, int $port, string $id) {
+  static function removed(string $host, int $port, string $prefix, string $id) {
     try {
-      $response = Client::instance()->delete("$host:$port/blueprint/$id");
+      $response = Client::instance()->delete("$host:$port$prefix/blueprint/$id");
       print_r($response->getBody()->getContents());
     }
     catch (Throwable $throwable) {
